@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Restaurateur waiter
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item-group>
+        <ion-item-divider>
+            <ion-label>{{'statistics_of_business' | translate}}</ion-label>
+        </ion-item-divider>
+    <ion-list>
+      <ion-item *ngFor="let item of businessStats">
+        {{item.name}}
+        <div class="item-note" slot="end">
+            <ion-badge color="primary">{{item.value}}</ion-badge>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-item-group>
+  <ion-item-group>
+      <ion-item-divider>
+          <ion-label>{{'more_popular_products_today' | translate}}</ion-label>
+      </ion-item-divider>
+  <ion-list>
+      <ion-item *ngFor="let item of moreSoldProductsToday">
+      {{item.name}}
+      <div class="item-note" slot="end">
+          <ion-badge color="primary">{{item.countOfSales}}</ion-badge>
+      </div>
+    </ion-item>
+  </ion-list>
+  </ion-item-group>
+  <ion-item-group>
+      <ion-item-divider>
+          <ion-label>{{'more_popular_products_in_week' | translate}}</ion-label>
+      </ion-item-divider>
+  <ion-list>
+      <ion-item *ngFor="let item of moreSoldProductsInWeek">
+      {{item.name}}
+      <div class="item-note" slot="end">
+          <ion-badge color="primary">{{item.countOfSales}}</ion-badge>
+      </div>
+    </ion-item>
+  </ion-list>
+  </ion-item-group>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'invoice_of_order' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let item of products">
+            <ion-icon name="paper" slot="start"></ion-icon>
+            {{item.name}}
+            <ion-label color="success">( {{item.count}} )</ion-label>
+            <div class="item-note" slot="end">
+                <ion-badge color="primary">{{item.price}}</ion-badge>
+            </div>
+        </ion-item>
+        <ion-item color="secondary">
+            <ion-icon name="paper" slot="start"></ion-icon>
+            {{total.name}}
+            <div class="item-note" slot="end">
+                <ion-badge color="primary">{{total.price}}</ion-badge>
+            </div>
+        </ion-item>
+    </ion-list>
+    <!--TODO Find align center -->
+    <ion-button color="primary" (click)="close()">Ok</ion-button>
+
+</ion-content>

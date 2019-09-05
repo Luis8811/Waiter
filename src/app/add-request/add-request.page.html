@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>{{'add_order_menu_button' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>{{'add_order_header' | translate}}</ion-list-header>
+        <ion-item>
+          <ion-label>{{'select_beverages' | translate}}</ion-label>
+          <ion-select multiple="true" cancelText={{labelOfCancelButton}}  name="beveragesSelect" [(ngModel)]="selectedBeverages" (ionChange)="updateBeverages($event)">
+            <ion-select-option *ngFor="let item of beverages" value={{item._id}}>{{item.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>  
+        <ion-item>
+          <ion-label>{{'select_dishes' | translate}}</ion-label>
+          <ion-select multiple="true" cancelText={{labelOfCancelButton}} name="dishesSelect" [(ngModel)]="selectedDishes" (ionChange)="updateDishes($event)">
+            <ion-select-option *ngFor="let item of dishes" value={{item._id}}>{{item.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+        <ion-label>{{'select_origin' | translate}}</ion-label>
+        <ion-select name="tablesSelect" [(ngModel)]="selectedTable" disabled="{{isDisabledSelectionOfTable}}" cancelText={{labelOfCancelButton}}>
+          <ion-select-option *ngFor="let item of availableLocations" value={{item}}>{{item}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+              <ion-button color="primary" (click)="showOrder()">Ok</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>

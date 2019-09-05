@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="englishLanguage()">
+        English
+      </ion-button>
+      <ion-button slot="end" (click)="spanishLanguage()">
+        Castellano
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{'label_access_to_waiter' | translate}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-input  [(ngModel)]="user" placeholder="User"></ion-input>
+          <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+        </ion-card-content>
+        
+      </ion-card>
+      <ion-button expand="full" (click)="login()">OK</ion-button>
+
+</ion-content>

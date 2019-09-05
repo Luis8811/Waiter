@@ -1,0 +1,38 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>{{'summary_of_order' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-grid>
+    <ion-row>
+      <ion-col>{{'column_product' | translate}}</ion-col>
+      <ion-col>{{'column_count' | translate}}</ion-col>
+      <ion-col>{{'column_type' | translate}}</ion-col>
+    </ion-row>
+    <ion-list>
+        <ion-item *ngFor="let item of products">
+          <ion-row>
+            <ion-col>
+            {{item.name}}
+          </ion-col>
+          <ion-col align-self-center>
+            {{item.count}}
+          </ion-col>
+          <ion-col align-self-center>
+            <ion-icon name={{item.icon}}></ion-icon>
+          </ion-col>
+          </ion-row>
+        </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+          <ion-button color="primary" (click)="processOrder()">Ok</ion-button>
+      </ion-col>
+      <ion-col>
+          <ion-button color="primary" (click)="close()">{{'back_button_label' | translate}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
